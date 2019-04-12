@@ -1,4 +1,4 @@
 class CommentVotedByUser < ApplicationRecord
-  belongs_to :vote_comment
-  belongs_to :user
+  has_many :vote_comment
+  has_many :user
 end
