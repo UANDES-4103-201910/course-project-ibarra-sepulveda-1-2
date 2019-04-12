@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vote_comment: one
+  user: one
+
+two:
+  vote_comment: two
+  user: two
