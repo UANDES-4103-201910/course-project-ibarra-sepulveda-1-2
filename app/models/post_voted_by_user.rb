@@ -1,4 +1,4 @@
 class PostVotedByUser < ApplicationRecord
-  belongs_to :vote_post
-  belongs_to :user
+  has_many :vote_post
+  has_many :user
 end
