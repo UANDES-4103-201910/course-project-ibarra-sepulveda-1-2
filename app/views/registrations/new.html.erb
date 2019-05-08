@@ -1,0 +1,29 @@
+<%= form_for(:registrations, url: sign_in_path) do |f| %>
+	<div class="form-group">
+	    <%= f.label :email %>
+	    <%= f.text_field :email %>
+	</div>
+	<div class="form-group">
+	    <%= f.label :country, "Country" %>
+	    <%= f.text_field :country %>
+	</div>
+	<div class="form-group">
+	    <%= f.label :city, "City" %>
+	    <%= f.text_field :city %>
+	</div>
+	
+	<div class="form-group">
+      <%= f.label :biography %>
+      <%= f.text_field :biography %>
+  	</div>
+	<div class="form-group">
+	    <%= f.label :password, "Password" %>
+	    <% if @minimum_password_length %>
+	        <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
+	    <% end %>
+	    <%= f.password_field :password, autocomplete: "off" %>
+	</div>
+	<div class="actions">
+	    <%= f.submit "Sign in", :class => 'btn btn-primary'%>
+	</div>
+<% end %>
