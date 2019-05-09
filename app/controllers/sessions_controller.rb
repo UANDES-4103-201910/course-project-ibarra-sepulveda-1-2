@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 			session[:current_user_id] = params[:authenticity_token]
 			cookies["authentification"] = params[:authenticity_token]
 			flash[:notice] = "You are successfully log in"
-			redirect_to users_path
+			redirect_to home_path
 		else
 			flash[:notice] = "Your email or password are incorrect"
 			redirect_to root_url

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root :to => 'sessions#new'
 
+  get '/home',  to: 'home#new'
+
   post '/login',   to: 'sessions#create', as: :log_in
   delete '/log_out' => 'sessions#destroy', as: :log_out
 
