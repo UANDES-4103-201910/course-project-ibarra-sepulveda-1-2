@@ -1,13 +1,5 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_devise_params, if: :devise_controller?
-	protect_from_forgery with: :exception
-
-	def configure_devise_params
-		devise_parameter_sanitizer.permit(:sing_up) do |user|
-			user.permit(:first_name, :last_name, :country, :city, :biography, :email, :password, :password_confirmation)
-		end
-	end
-
 
 	def is_admin_logged_in?
 		logged_in = false
@@ -31,5 +23,13 @@ class ApplicationController < ActionController::Base
 		else 
 			redirect_to root_path 
 		end
+	end
+
+	protected
+
+	def configure_devise_params
+		add = [:first_name, :last_name, :country, :city, :biography, :email, :password, :password_confirmation]
+		devise_parameter_sanitizer.permit :sign_up, keys: add
+    	devise_parameter_sanitizer.permit :account_update, keys: add
 	end
 end

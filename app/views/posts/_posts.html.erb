@@ -1,0 +1,27 @@
+<% @posts.each do |post| %>
+	<div class="col-sm-6 ">
+		<div class="border border-primary">
+	    <div class="col-2">    
+	    </div>
+	    <div class="col-10">
+	      <div class="col-12 card-title">
+	        <h4><%= post.title %></h4>
+	      </div>
+	      <div class="col-12">
+	        <%= User.where(id: post.user_id )[0].email %>
+	      </div>
+	      <div class="col-12">
+	              
+	      </div>
+	      <div class="col-12">
+	        <%= post.text %>
+	      </div>
+	      <div class="col-12">
+	        <div class="col-8"></div>
+	        <div class="col-2"> </div>
+	        <div class="col-2"> </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<% end %>

@@ -19,3 +19,4 @@ Blacklist.create(user_id: 3)
 
 Post.create(user_id: 5, title: "new", text: "hello world")
 Post.create(user_id: 2, title: "New Post", text: "hello new post" )
+
