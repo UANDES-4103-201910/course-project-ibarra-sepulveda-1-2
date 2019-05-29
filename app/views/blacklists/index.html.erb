@@ -1,28 +1,40 @@
-<%- if (user_signed_in? and Admin.where(user_id: current_user.id).first.nil?) %>
-	<div class="container" >
-		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-8">
-				<table class="table table-bordered">
-				    <thead>
-				      <tr>
-				        <th>User name</th>
-				        <th>Created</th>
-				        <th> </th>
-				        <th> </th>
-				      </tr>
-				    </thead>
-				    <tbody>
-						<%= render @blacklist %>
-					</tbody>
-  				</table>
-			</div>
-			<div class="col-2"></div>
-		</div>
-		<div><br> </div>
-	</div>
-<% else %>
-	<script type="text/javascript">
-    	window.location.href="/"  // put your correct path in a string here
-  	</script>
-<%end%>
+<div class="col-12 text-center">
+  <p id="notice"><%= notice %></p>
+  <h1>Blacklist</h1>
+</div>
+
+<div class="col-2"></div>
+<div class="col-8">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Created</th>
+        <th> </th>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @blacklists.each do |blacklist| %>
+        <tr>
+          <td><%= User.where(id: blacklist.user_id )[0].email%></td>
+          <td><%=  blacklist.created_at %></td>
+          <td><%= link_to 'Show', blacklist, :class => 'btn btn-info' %></td>
+          <td><%= link_to 'Edit', edit_blacklist_path(blacklist), :class => 'btn btn-info' %></td>
+          <td><%= link_to 'Destroy', blacklist, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'btn btn-info'%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="col-2"></div>
+
+<br>
+<div class="col-12 text-center">
+  <%= link_to 'Add new user', new_blacklist_path , :class => 'btn btn-info'%>
+</div>
+<div class="col-12">
+  <br>
+</div>

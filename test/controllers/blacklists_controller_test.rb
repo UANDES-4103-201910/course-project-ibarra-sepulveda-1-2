@@ -1,34 +1,48 @@
 require 'test_helper'
 
 class BlacklistsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get blacklists_index_url
-    assert_response :success
+  setup do
+    @blacklist = blacklists(:one)
   end
 
-  test "should get show" do
-    get blacklists_show_url
+  test "should get index" do
+    get blacklists_url
     assert_response :success
   end
 
   test "should get new" do
-    get blacklists_new_url
+    get new_blacklist_url
     assert_response :success
   end
 
-  test "should get create" do
-    get blacklists_create_url
+  test "should create blacklist" do
+    assert_difference('Blacklist.count') do
+      post blacklists_url, params: { blacklist: {  } }
+    end
+
+    assert_redirected_to blacklist_url(Blacklist.last)
+  end
+
+  test "should show blacklist" do
+    get blacklist_url(@blacklist)
     assert_response :success
   end
 
-  test "should get update" do
-    get blacklists_update_url
+  test "should get edit" do
+    get edit_blacklist_url(@blacklist)
     assert_response :success
   end
 
-  test "should get destroy" do
-    get blacklists_destroy_url
-    assert_response :success
+  test "should update blacklist" do
+    patch blacklist_url(@blacklist), params: { blacklist: {  } }
+    assert_redirected_to blacklist_url(@blacklist)
   end
 
+  test "should destroy blacklist" do
+    assert_difference('Blacklist.count', -1) do
+      delete blacklist_url(@blacklist)
+    end
+
+    assert_redirected_to blacklists_url
+  end
 end
