@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
 	def is_admin_logged_in?
 		logged_in = false
-		if (user_signed_in? and Admin.where(user_id: current_user.id).first.nil?)
+		if (user_signed_in? and Admin.where.not(user_id: current_user.id).first.nil?)
 			logged_in = true
 		end
 		if logged_in 
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
 	def is_user_logged_in?
 		logged_in = false
-		if (user_signed_in? and Admin.where.not(user_id: current_user.id).first.nil?)
+		if (user_signed_in? and Admin.where(user_id: current_user.id).first.nil?)
 			logged_in = true
 		end
 		if logged_in 
