@@ -1,0 +1,9 @@
+<div class="row">
+	<tr>
+        <td><%= User.where(id: @blacklist )[0].user_name %></td>
+        <td><%=  @blacklist[0].created_at %></td>
+        <td><%= link_to 'Edit', edit_blacklist_path(blacklist) , :class => 'btn btn-info'%></td>
+        <td><%= link_to 'Destroy', blacklist, method: :delete , :class => 'btn btn-info'%></td>
+     </tr>
+	
+</div>

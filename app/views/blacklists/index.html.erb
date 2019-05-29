@@ -1,0 +1,28 @@
+<%- if (user_signed_in? and Admin.where(user_id: current_user.id).first.nil?) %>
+	<div class="container" >
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col-8">
+				<table class="table table-bordered">
+				    <thead>
+				      <tr>
+				        <th>User name</th>
+				        <th>Created</th>
+				        <th> </th>
+				        <th> </th>
+				      </tr>
+				    </thead>
+				    <tbody>
+						<%= render @blacklist %>
+					</tbody>
+  				</table>
+			</div>
+			<div class="col-2"></div>
+		</div>
+		<div><br> </div>
+	</div>
+<% else %>
+	<script type="text/javascript">
+    	window.location.href="/"  // put your correct path in a string here
+  	</script>
+<%end%>
