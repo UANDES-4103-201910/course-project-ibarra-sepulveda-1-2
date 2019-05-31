@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_devise_params, if: :devise_controller?
+	add_flash_types :danger, :info, :warning, :success
 
 	def is_admin_logged_in?
 		logged_in = false

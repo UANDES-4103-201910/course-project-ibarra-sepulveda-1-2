@@ -1,6 +1,8 @@
 <% @posts.each do |post| %>
 	<div class="col-sm-6">
+		<div class="col-12"><br></div>
 		<div class="container border border-primary">
+			<div class="col-12"><br></div>
 			<div class="row">
 			    <div class="col-2"> 
 			    	<figure class="figure">
@@ -18,6 +20,7 @@
 			              
 			      </div>
 			      <div class="col-12">
+			      	<br>
 			        <%= post.text %>
 			      </div>
 			      <div class="col-12">
@@ -27,6 +30,9 @@
 			      </div>
 			    </div>
 			</div>
+			<div class="col-12"><br></div>
 	  	</div>
+	  	<div class="col-12"><br></div>
 	</div>
+
 <% end %>
