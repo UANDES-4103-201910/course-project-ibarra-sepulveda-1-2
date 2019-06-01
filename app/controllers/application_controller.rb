@@ -2,9 +2,21 @@ class ApplicationController < ActionController::Base
 	before_action :configure_devise_params, if: :devise_controller?
 	add_flash_types :danger, :info, :warning, :success
 
+	def is_super_admin_logged_in?
+		logged_in = false
+		if (user_signed_in? and SuperAdmin.where(user_id: current_user.id).first.nil? == false)
+			logged_in = true
+		end
+		if logged_in 
+			then true
+		else 
+			redirect_to root_path 
+		end
+	end
+
 	def is_admin_logged_in?
 		logged_in = false
-		if (user_signed_in? and Admin.where.not(user_id: current_user.id).first.nil?)
+		if (user_signed_in? and Admin.where(user_id: current_user.id).first.nil? == false) 
 			logged_in = true
 		end
 		if logged_in 
@@ -16,7 +28,7 @@ class ApplicationController < ActionController::Base
 
 	def is_user_logged_in?
 		logged_in = false
-		if (user_signed_in? and Admin.where(user_id: current_user.id).first.nil?)
+		if (user_signed_in?)
 			logged_in = true
 		end
 		if logged_in 
