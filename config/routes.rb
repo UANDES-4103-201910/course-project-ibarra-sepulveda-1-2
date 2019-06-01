@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :blacklists
   resources :dumpsters
   resources :posts
+  resources :admins
 
   root :to => 'home#index'
 

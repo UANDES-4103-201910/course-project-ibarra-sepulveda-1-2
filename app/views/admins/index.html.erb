@@ -1,0 +1,42 @@
+<div class="col-12 text-center">
+  <h1>Admins</h1>
+</div>
+
+<div class="col-2"></div>
+<div class="col-8">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Location</th>
+        <th>Last Modification</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @admins.each do |admin| %>
+        <tr>
+          <td><%= User.where(id: admin.user_id )[0].email %></td>
+          <td><%= User.where(id: admin.user_id )[0].country %> / <%= User.where(id: admin.user_id )[0].city %></td>
+          <td><%= admin.updated_at %></td>
+          <td><%= link_to 'Show', admin, :class => 'btn btn-info' %></td>
+          <td><%= link_to 'Edit', edit_admin_path(admin), :class => 'btn btn-info' %></td>
+          <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-info' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="col-2"></div>
+<br>
+
+<div class="col-12 text-center">
+  <%= link_to 'New Admin', new_admin_path, :class => 'btn btn-info' %>
+</div>
+<div class="col-12">
+  <br>
+</div>

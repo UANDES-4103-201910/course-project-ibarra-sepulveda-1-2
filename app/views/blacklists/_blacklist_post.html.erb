@@ -1,0 +1,39 @@
+<% @blacklists.each do |blacklist| %>
+	<div class="col-sm-6">
+		<div class="col-12"><br></div>
+		<div class="container border border-primary">
+			<div class="col-12"><br></div>
+			<div class="col-12">
+				<div class="row">
+					<div class="col-10"></div>
+					<div class="col-2">
+						<%= link_to blacklist, method: :delete, data: { confirm: 'Are you sure?'}, remote: true do %>
+						  <i class="fa fa-times fa-stack-2x"></i>
+						<% end %>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+			    <div class="col-2"> 
+			    	<figure class="figure">
+			    		 <%= image_tag User.where(id: blacklist.user_id )[0].picture.medium.url, class: 'figure-img img-fluid rounded'%>
+			    	</figure>   
+			    </div>
+			    <div class="col-10">
+			      <div class="col-12 card-title">
+			        <h4><%= User.where(id: blacklist.user_id )[0].email %></h4>
+			      </div>
+			      <div class="col-12">
+			        <%= blacklist.updated_at %>
+			      </div>
+			      <div class="col-12">
+			         <i class="fa fa-map-marker"></i> <%= User.where(id: blacklist.user_id )[0].city %>, <%= User.where(id: blacklist.user_id )[0].country %> 
+			      </div>
+			    </div>
+			</div>
+			<div class="col-12"><br></div>
+	  	</div>
+	  	<div class="col-12"><br></div>
+	</div>
+
+<% end %>

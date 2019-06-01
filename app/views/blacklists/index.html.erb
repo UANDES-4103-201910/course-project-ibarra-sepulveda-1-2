@@ -2,35 +2,14 @@
   <h1>Blacklist</h1>
 </div>
 
-<div class="col-2"></div>
-<div class="col-8">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Email</th>
-        <th>Created</th>
-        <th> </th>
-        <th> </th>
-        <th> </th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @blacklists.each do |blacklist| %>
-        <tr>
-          <td><%= User.where(id: blacklist.user_id )[0].email%></td>
-          <td><%=  blacklist.created_at %></td>
-          <td><%= link_to 'Show', blacklist, :class => 'btn btn-info' %></td>
-          <td><%= link_to 'Edit', edit_blacklist_path(blacklist), :class => 'btn btn-info' %></td>
-          <td><%= link_to 'Destroy', blacklist, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'btn btn-info'%></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="container">
+  <div class="col-12">
+    <div class="row">  
+      <%= render "blacklist_post" %>
+    </div>
+  </div>
 </div>
-<div class="col-2"></div>
 
-<br>
 <div class="col-12 text-center">
   <%= link_to 'Add new user', new_blacklist_path , :class => 'btn btn-info'%>
 </div>

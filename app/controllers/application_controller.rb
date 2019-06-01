@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
 	def is_admin_logged_in?
 		logged_in = false
-		if (user_signed_in? and Admin.where(user_id: current_user.id).first.nil? == false) 
+		if (user_signed_in? and (Admin.where(user_id: current_user.id).first.nil? == false or SuperAdmin.where(user_id: current_user.id).first.nil? == false))
 			logged_in = true
 		end
 		if logged_in 
