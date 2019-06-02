@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :dumpsters
   resources :posts
   resources :admins
+  resources :profiles
 
   root :to => 'home#index'
 

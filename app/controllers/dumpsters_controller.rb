@@ -5,6 +5,8 @@ class DumpstersController < ApplicationController
   # GET /dumpsters.json
   def index
     @dumpsters = Dumpster.all
+    @posts = Post.where(id:Dumpster.select(:post_id))
+
   end
 
   # GET /dumpsters/1
