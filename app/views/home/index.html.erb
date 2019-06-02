@@ -5,7 +5,20 @@
 	<div class="col-12"><br></div>
 	<div class="container" >
 	  <div class="row">
-	    <%= render "posts/posts" %>
+	  	<div class="col-12">
+	  		<%= form_tag "/search/create", method: :get, remote: true, id:"search-form" do %>
+	  			<%= text_field_tag :keyword, nil, placeholder: "search"%>
+	  			<%= content_tag :button, type: :submit do %>
+	  				<i class="fa fa-search"></i>
+	  			<% end %>
+	  		<% end %>
+	  	</div>
+	  	<div class="col-sm-12">
+		  	<div class="row" id="answer">
+		  		
+		  	</div>
+	  	</div>
+	    <%= render @posts %>
 	  </div>
 	</div>
 	<div class="col-12"><br></div>
