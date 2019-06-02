@@ -11,7 +11,16 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="container">
+    <div class="col-12">
+      <div class="form-group">
+        <%= form.label :user_id %><br />
+        <%= form.number_field :user_id, autofocus: true, autocomplete: "user_id", :class => 'form-control' %>
+      </div>
+
+      <div class="actions text-center">
+        <%= form.submit %>
+      </div>
+    </div>
   </div>
 <% end %>

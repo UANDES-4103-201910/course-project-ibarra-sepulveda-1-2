@@ -6,6 +6,8 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     @profile = User.where(id: current_user.id).first
+    @col6 = false
+    @posts = Post.where(user_id: current_user.id) 
   end
 
   # GET /profiles/1

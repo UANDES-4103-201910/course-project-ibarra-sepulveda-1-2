@@ -1,11 +1,13 @@
 class DumpstersController < ApplicationController
   before_action :set_dumpster, only: [:show, :edit, :update, :destroy]
+  before_action :is_admin_logged_in?
 
   # GET /dumpsters
   # GET /dumpsters.json
   def index
     @dumpsters = Dumpster.all
     @posts = Post.where(id:Dumpster.select(:post_id))
+    @col6 = true
 
   end
 
