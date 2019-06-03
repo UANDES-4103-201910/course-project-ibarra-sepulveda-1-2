@@ -1,25 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Our application implements the following requested features:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* System Access
+    - [x] Log in with email address
+    - [x] Log in with Google authentication
+    - [x] Log out
+* Registration
+    - [x] User registration
+    - [x] Change password
+    - [ ] Password recovery 
 
 * ...
-# course-project-ibarra-sepulveda-1-2
+## Course Project: Assignment 3 
+
+* Javier Ibarra
+* Camila Sepúlveda
