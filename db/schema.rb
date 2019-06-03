@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_01_144920) do
+ActiveRecord::Schema.define(version: 2019_06_03_032026) do
 
   create_table "admins", force: :cascade do |t|
     t.integer "user_id"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2019_06_01_144920) do
     t.datetime "updated_at", null: false
     t.boolean "active"
     t.boolean "solver"
+    t.string "file"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

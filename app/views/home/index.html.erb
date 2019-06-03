@@ -3,6 +3,10 @@
 </div>
 <% if (user_signed_in?) %>
 	<div class="col-12"><br></div>
+	<div class="col-12 text-center">
+		<%= link_to 'New Post', new_post_path , :class => 'btn btn-info'%>
+	</div>
+	<div class="col-12"><br></div>
 	<div class="container" >
 	  <div class="row">
 	  	<div class="col-12 text-center">

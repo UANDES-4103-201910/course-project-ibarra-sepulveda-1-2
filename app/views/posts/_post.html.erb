@@ -27,9 +27,14 @@
 		        	<%= User.where(id: post.user_id )[0].email %>
 		      	</div>
 		      	<div class="col-12">
-			              
+			       <br>
 		      	</div>
 		      	<div class="col-12">
+		      		<% if  post.file.thumb.url %>
+			      		<figure class="figure">
+			    		 	<%= image_tag post.file.thumb.url, class: 'figure-img img-fluid rounded'%>
+			    		</figure> 
+			    	<% end %>
 		      		<br>
 		        	<%= post.text %>
 		      	</div>

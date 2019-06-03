@@ -15,7 +15,10 @@ gem 'jquery-rails'
 
 gem 'bootstrap', '~> 4.3.1'
 
-gem 'therubyracer'
+#gem 'therubyracer'
+gem 'mini_racer'
+
+
 gem 'omniauth-google-oauth2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
