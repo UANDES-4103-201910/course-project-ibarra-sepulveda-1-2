@@ -1,4 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="col-12 page-header text-center">
+  <h1>Profiles</h1>
+</div>
+  <div class="col-lg-6">
+    <div class="container">
+      <div class="col-12"><br></div>
+      <figure class="figure">
+        <%= image_tag  @user.picture.medium.url, class: 'figure-img img-fluid rounded'%>
+      </figure>
+      
+      <div class="col-12">
+        <%= @user.biography %><br><br>
+      </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <div class="col-12">
+        Name: <%= @user.first_name and @user.last_name%><br><br>
+      </div>
+
+      <div class="col-12">
+        Email: <%= @user.email%><br><br>
+      </div>
+
+      <div class="col-12">
+        City: <%= @user.city %><br><br>
+      </div> 
+
+      <div class="col-12">
+        Country: <%= @user.country %><br><br>
+      </div>
+      <% if (current_user.id == @user.id) %>
+        <div class="col-12">
+          <%= link_to 'Edit', edit_user_registration_path(@user), :class => 'btn btn-info' %><br><br>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <%= render @posts %>
+    <%= will_paginate @posts %>
+  </div>
+</div>

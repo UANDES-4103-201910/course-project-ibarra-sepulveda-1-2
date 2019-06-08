@@ -17,12 +17,11 @@
 	  			<% end %>
 	  		<% end %>
 	  	</div>
-	  	<div class="col-sm-12">
-		  	<div class="row" id="answer">
-		  		
-		  	</div>
-	  	</div>
-	    <%= render @posts %>
+		<div class="row" id="answer"></div>
+	  	<div class="row" id="posts">
+	    	<%= render @posts %>
+	    	<%= will_paginate @posts %>
+		</div>
 	  </div>
 	</div>
 	<div class="col-12"><br></div>

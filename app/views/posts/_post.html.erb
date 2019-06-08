@@ -18,8 +18,12 @@
 			        	<h4><%= post.title %></h4>
 			      	</div>
 			      	<div class="col-2">
-			      		<% unless (Dumpster.where(post_id: post.id).first.nil?) %>
+			      		<% dumpster =  Dumpster.where(post_id: post.id).first %>
+			      		<% unless (dumpster.nil?) %>
 			      			<%= link_to fa_icon("times 2x"), Dumpster.where(post_id: post.id).first, method: :delete, data: { confirm: 'Are you sure?'} %>
+			      		<% end %>
+			      		<% if (post.user_id == current_user.id) %>
+			      			<%= link_to fa_icon("times 2x"), post , method: :delete, data: { confirm: 'Are you sure?'} %>
 			      		<% end %>
 			      	</div>
 		    	</div>
@@ -49,8 +53,8 @@
 					    <div class="col-1"></div>
 					    <div class="col-1">
 					       	<button class="btn my-2 my-sm-0" type="submit">
-					        	<i class="fa fa-commenting fa-stack-2x"></i>
-					     	</button>
+						      	<i class="fa fa-commenting fa-stack-2x"></i>
+						    </button>
 					    </div>
 					    <div class="col-1"></div>
 					    <div class="col-1">
