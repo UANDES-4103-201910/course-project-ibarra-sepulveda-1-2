@@ -1,0 +1,72 @@
+<div class="col-sm-12">
+	<div class="container">
+		<div class="row">
+			<div class="col-9">
+				<div class="col-12"><br></div>
+				<div class="container comment" >
+					<div class="col-12">
+						<div class="row">
+							<div class="col-10"><br></div>
+							<div class="col-2">
+								<% if (comment.user_id == current_user.id) %>
+					      			<%= link_to fa_icon("times 2x"), comment , method: :delete, data: { confirm: 'Are you sure?'} %>
+					      		<% end %>
+				      	 	</div>
+						</div>
+					</div>
+					<div class="row">
+					    <div class="col-2"> 
+					    	<figure class="figure">
+					    		 <%= image_tag User.where(id: comment.user_id )[0].picture.medium.url, class: 'figure-img img-fluid rounded'%>
+					    	</figure>   
+					    </div>
+					    <div class="col-10">
+					    	<div class="row">
+						      	<div class="col-10 card-title">
+						        	<h4><%= User.where(id: comment.user_id )[0].email %></h4>
+						      	</div>
+					    	</div>
+					      	<div class="col-12">
+						       <br>
+					      	</div>
+					      	<div class="col-12">
+					        	<%= comment.text %>
+					      	</div>
+					      	<div class="col-12">
+						      	<div class="row">
+							        <div class="col-6"></div>
+								    <div class="col-1">
+								       	<button class="btn my-2 my-sm-0" type="submit">
+								       		<i class="fa fa-thumbs-up fa-stack-2x"></i>
+								       	</button>
+								    </div>
+								    <div class="col-1"></div>
+								    <div class="col-1">
+								       	<button class="btn my-2 my-sm-0" type="submit">
+									      	<i class="fa fa-commenting fa-stack-2x"></i>
+									    </button>
+								    </div>
+								    <div class="col-1"></div>
+								    <div class="col-1">
+									    <button class="btn my-2 my-sm-0" type="submit">
+									      	<i class="fa fa-exclamation-triangle fa-stack-2x"></i>
+									    </button>
+								    </div>
+								    <div class="col-1"></div>
+							    </div>
+					      	</div>
+					    </div>
+					</div>
+					<div class="col-12"><br></div>
+				</div>
+				<div class="col-12"><br></div>
+			</div>
+			<div class="col-3">
+				<br><br><br><br><br><br>
+				<i class="fa fa-reply fa-stack-2x"></i>
+			</div>
+		</div>
+	</div>
+</div>
+
+

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :admins
   resources :profiles
+  resources :comments
 
   root :to => 'home#index'
 
