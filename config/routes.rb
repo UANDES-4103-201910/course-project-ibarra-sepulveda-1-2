@@ -5,11 +5,23 @@ Rails.application.routes.draw do
   resources :users
   resources :blacklists
   resources :dumpsters
-  resources :posts
   resources :admins
   resources :profiles
-  resources :comments
 
   root :to => 'home#index'
+
+  resources :posts do
+    member do
+      put "like" => "posts#upvote"
+      put "unlike" => "posts#downvote"
+    end
+  end
+
+  resources :comments do
+    member do
+      put "like" => "comments#upvote"
+      put "unlike" => "comments#downvote"
+    end
+  end
 
 end

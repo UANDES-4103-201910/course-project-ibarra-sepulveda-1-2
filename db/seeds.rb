@@ -26,8 +26,16 @@ Post.create(user_id: 6, title: "Title post 5", active: true, solver: false, text
 Post.create(user_id: 3, title: "Title post 6", active: false, solver: false, text: "Lorem ipsum dolor sit amet consectetur adipiscing, elit curae urna nisi lobortis potenti, tincidunt molestie sem commodo gravida. Cum congue convallis curabitur viverra posuere conubia odio praesent quisque montes natoque platea venenatis scelerisque dictumst, cubilia felis fermentum per duis sapien porttitor senectus velit sem nunc tellus ac. Convallis fusce tortor quis suspendisse at eu porttitor, non aliquam venenatis elementum dapibus iaculis, eros id vivamus purus feugiat tempus." )
 Post.create(user_id: 4, title: "Title post 7", active: false, solver: false, text: "Lorem ipsum dolor sit amet consectetur adipiscing, elit curae urna nisi lobortis potenti, tincidunt molestie sem commodo gravida. Cum congue convallis curabitur viverra posuere conubia odio praesent quisque montes natoque platea venenatis scelerisque dictumst, cubilia felis fermentum per duis sapien porttitor senectus velit sem nunc tellus ac. Convallis fusce tortor quis suspendisse at eu porttitor, non aliquam venenatis elementum dapibus iaculis, eros id vivamus purus feugiat tempus." )
 
-Comment.create(post_id: 1, user_id:2, text: "hello")
-Comment.create(post_id: 1, user_id:5, text: "hello jibarra@miuandes.cl")
+Comment.create(post_id: 1, user_id:3, text: "Lorem ipsum dolor sit amet consectetur adipiscing")
+Comment.create(post_id: 1, user_id:5, text: "elit curae urna nisi lobortis potenti, tincidunt molestie sem commodo gravida")
+Comment.create(post_id: 1, user_id:3, text: "Convallis fusce tortor quis suspendisse at eu porttitor")
+Comment.create(post_id: 2, user_id:2, text: "Lorem ipsum dolor sit amet consectetur adipiscing")
+Comment.create(post_id: 3, user_id:1, text: "elit curae urna nisi lobortis potenti, tincidunt molestie sem commodo gravida")
+Comment.create(post_id: 3, user_id:4, text: "Convallis fusce tortor quis suspendisse at eu porttitor")
+Comment.create(post_id: 4, user_id:5, text: "Convallis fusce tortor quis suspendisse at eu porttitor")
+Comment.create(post_id: 4, user_id:4, text: "Lorem ipsum dolor sit amet consectetur adipiscing")
+Comment.create(post_id: 5, user_id:1, text: "elit curae urna nisi lobortis potenti, tincidunt molestie sem commodo gravida")
+Comment.create(post_id: 1, user_id:2, text: "Lorem ipsum dolor sit amet consectetur adipiscing")
 
 Blacklist.create(user_id: 3)
 Blacklist.create(user_id: 4)

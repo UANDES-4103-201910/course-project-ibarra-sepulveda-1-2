@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :is_user_logged_in?
   # GET /comments
   # GET /comments.json
@@ -67,6 +67,16 @@ class CommentsController < ApplicationController
     else
       respond_to root_path
     end
+  end
+
+  def upvote
+    @comment.upvote_from current_user
+    redirect_to post_path(@comment.post_id)
+  end
+
+  def downvote
+    @comment.downvote_from current_user
+    redirect_to post_path(@comment.post_id)
   end
 
   private

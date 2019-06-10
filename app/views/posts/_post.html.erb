@@ -51,11 +51,19 @@
 			      			</div>
 
 			      		<%else%>
-					        <div class="col-6"></div>
+					        <div class="col-4"></div>
 						    <div class="col-1">
-						       	<button class="btn my-2 my-sm-0" type="submit">
-						       		<i class="fa fa-thumbs-up fa-stack-2x"></i>
-						       	</button>
+						       	<br>
+						       	<%= link_to fa_icon("thumbs-up 2x"), like_post_path(post), method: :put  %>
+						       	<br>
+								<%= post.get_upvotes.size %>
+						    </div>
+						    <div class="col-1"></div>
+						    <div class="col-1">
+						    	<br>
+						       	<%= link_to fa_icon("thumbs-down 2x"), unlike_post_path(post), method: :put  %>
+								<br>
+								<%= post.get_downvotes.size %>
 						    </div>
 						    <div class="col-1"></div>
 						    <div class="col-1">

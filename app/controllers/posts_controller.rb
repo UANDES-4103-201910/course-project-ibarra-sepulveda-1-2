@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :is_user_logged_in?
 
   # GET /posts
@@ -64,6 +64,17 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upvote
+    @post.upvote_from current_user
+    redirect_to root_path
+  end
+
+  def downvote
+    @post.downvote_from current_user
+    redirect_to root_path
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
