@@ -10,6 +10,12 @@ Rails.application.routes.draw do
 
   root :to => 'home#index'
 
+  resources :reports do
+    member do
+      get "report" => "reports#report"
+    end
+  end
+
   resources :posts do
     member do
       put "like" => "posts#upvote"

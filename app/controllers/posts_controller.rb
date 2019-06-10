@@ -76,7 +76,7 @@ class PostsController < ApplicationController
   end
 
   def report
-    @comment= Comment.new(user_id:current_user.id, post_id: @post.id)
+    @report = Report.new(user_id:current_user.id, post_id: @post.id)
     respond_to do |format|
       format.js
     end
