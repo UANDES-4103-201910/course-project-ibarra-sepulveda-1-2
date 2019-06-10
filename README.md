@@ -25,29 +25,31 @@ Our application implements the following requested features:
     - [ ] Change password
     - [ ] Delete administrator
 * User Profile
-    - [ ] View user profile
+    - [x] View user profile
     - Edit user profile
-    - [ ] Edit user fields: name, bio, location.
-    - [ ] View posts
+    - [x] Edit user fields: name, bio, location.
+    - [x] View posts
 * Posts
     - View post
-    - [ ] View title, description, location, and creation date
+    - [x] View title, description. 
+    - [ ] View location, and creation date
     - [ ] View post location on map
-    - [ ] View upvotes and downvotes
-    - [ ] View images
+    - [x] View upvotes and downvotes
+    - [x] View images
     - [ ] View file attachments
-    - [ ] Delete post
+    - [x] Delete post
     - [ ] Edit post
-    - [ ] Upvote post
-    - [ ] Downvote post
+    - [x] Upvote post
+    - [x] Downvote post
     - [ ] Follow post
     - [ ] View publisher profile
     - [ ] Mark post as inappropriate
-    - [ ] Comment threads for posts
+    - [x] Comment threads for posts
+    - [x] **Report post**
     - [ ] Add comment to report comments thread
     - [ ] Edit comment in report comments thread
     - [ ] Tag user in comment
-    - [ ] View author profile
+    - [x] View author profile
 * User Search
     - [ ] Search by nickname
     - [ ] Search by location
