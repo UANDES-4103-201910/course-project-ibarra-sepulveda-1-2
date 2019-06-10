@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
 
-  	def create
+  	def post
   		word = "%#{params[:keyword]}%"
       @col6 = true
   		@user = User.where("first_name LIKE ? OR last_name LIKE ? OR email LIKE ?", word, word, word)
@@ -17,4 +17,16 @@ class SearchController < ApplicationController
   			format.js
   		end
   	end
+
+    def admin
+      word = "%#{params[:keyword]}%"
+      @user = User.where("email LIKE ?", word).first
+      @admins = Admin.where(user_id: @user.id)
+
+      respond_to do |format|
+        format.html { redirect_to admins_path }
+        format.json { render json: @admins }
+        format.js
+      end
+    end
 end

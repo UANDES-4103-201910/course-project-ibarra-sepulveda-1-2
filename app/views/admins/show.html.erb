@@ -1,14 +1,15 @@
 <div class="container">
 	<div class="col-12">
-		Name: <%= User.where(id: @admin )[0].first_name + User.where(id: @admin )[0].last_name %>
+		<% @user = User.where(id: @admin.user_id )[0] %>
+		Name: <%= @user.first_name + @user.last_name %>
 	</div>
 
 	<div class="col-12">
-		Email: <%= User.where(id: @admin )[0].email%>
+		Email: <%= @user.email%>
 	</div>
 
 	<div class="col-12">
-		Location: <%= User.where(id: @admin )[0].country %> / <%= User.where(id: @admin )[0].city %>
+		Location: <%= @user.country %> / <%= @user.city %>
 	</div>
 
 	<div class="col-12">

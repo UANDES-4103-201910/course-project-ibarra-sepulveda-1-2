@@ -18,8 +18,8 @@
 			        	<h4><%= post.title %></h4>
 			      	</div>
 			      	<div class="col-2">
-			      		<% dumpster =  Dumpster.where(post_id: post.id).first %>
-			      		<% if (dumpster.nil? == false and @is_admin) %>
+			      		<% @dumpster =  Dumpster.where(post_id: post.id).first %>
+			      		<% if ((@dumpster.nil? == false) and @is_admin) %>
 			      			<%= link_to fa_icon("times 2x"), Dumpster.where(post_id: post.id).first, method: :delete, data: { confirm: 'Are you sure?'} %>
 			      		<% end %>
 			      		<% if (post.user_id == current_user.id) %>

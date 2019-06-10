@@ -1,7 +1,14 @@
 <div class="col-12 text-center">
   <h1>Admins</h1>
 </div>
-
+<div class="col-12 text-center">
+  <%= form_tag "/search/admin", method: :get, remote: true, id:"search-form" do %>
+    <%= text_field_tag :keyword, nil, placeholder: "search"%>
+    <%= content_tag :button, type: :submit do %>
+      <i class="fa fa-search"></i>
+    <% end %>
+  <% end %><br>
+</div>
 <div class="col-2"></div>
 <div class="col-8">
   <table class="table table-bordered">
@@ -16,16 +23,16 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody id="answer">
       <% @admins.each do |admin| %>
-        <tr>
-          <td><%= User.where(id: admin.user_id )[0].email %></td>
-          <td><%= User.where(id: admin.user_id )[0].country %> / <%= User.where(id: admin.user_id )[0].city %></td>
-          <td><%= admin.updated_at %></td>
-          <td><%= link_to 'Show', admin, :class => 'btn btn-info' %></td>
-          <td><%= link_to 'Edit', edit_admin_path(admin), :class => 'btn btn-info' %></td>
-          <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-info' %></td>
-        </tr>
+        <tr class="deleteSearh">
+          <td class="deleteSearh"><%= User.where(id: admin.user_id )[0].email %></td>
+          <td class="deleteSearh"><%= User.where(id: admin.user_id )[0].country %> / <%= User.where(id: admin.user_id )[0].city %></td>
+          <td class="deleteSearh"><%= admin.updated_at %></td>
+          <td class="deleteSearh"><%= link_to 'Show', admin, :class => 'btn btn-info' %></td>
+          <td class="deleteSearh"><%= link_to 'Edit', edit_admin_path(admin), :class => 'btn btn-info' %></td>
+          <td class="deleteSearh"><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-info' %></td>
+        </tr class="deleteSearh">
       <% end %>
     </tbody>
   </table>

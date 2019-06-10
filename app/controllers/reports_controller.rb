@@ -25,7 +25,14 @@ class ReportsController < ApplicationController
   # POST /reports.json
   def create
     @report = Report.new(report_params)
-
+    if (Report.where(post_id: @report.post_id).count > 1 and Dumpster.where(post_id: @report.post_id).first.nil?)
+      Dumpster.create(post_id: @report.post_id)
+      Post.where(id: @report.post_id).update(active: false)
+      @user_id = Post.where(id: @report.post_id).first.user_id
+      if Blacklist.where(user_id: User.where(id: @user_id)).first.nil?
+        Blacklist.create(user_id: User.where(id: @user_id).first.id)
+      end
+    end
     respond_to do |format|
       if @report.save
         format.html { redirect_to root_path, success: 'Report was successfully created.' }
