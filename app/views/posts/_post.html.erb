@@ -19,7 +19,7 @@
 			      	</div>
 			      	<div class="col-2">
 			      		<% dumpster =  Dumpster.where(post_id: post.id).first %>
-			      		<% unless (dumpster.nil?) %>
+			      		<% if (dumpster.nil? == false and @is_admin) %>
 			      			<%= link_to fa_icon("times 2x"), Dumpster.where(post_id: post.id).first, method: :delete, data: { confirm: 'Are you sure?'} %>
 			      		<% end %>
 			      		<% if (post.user_id == current_user.id) %>
@@ -72,14 +72,17 @@
 						    </div>
 						    <div class="col-1"></div>
 						    <div class="col-1">
-						        <% if (Dumpster.where(post_id: post.id).first.nil?) %>
-							        <button class="btn my-2 my-sm-0" type="submit">
-							      		<i class="fa fa-exclamation-triangle fa-stack-2x"></i>
-							        </button>
+						        <% if (Dumpster.where(post_id: post.id).first.nil?) or (@is_admin==false) %>
+						        	<br>
+						        	<%= link_to fa_icon("exclamation-triangle 2x"), report_post_path(post), :remote=>true %>
 							    <% else %>'
-							        <button class="btn my-2 my-sm-0" type="submit">
-							        	<i class="fa fa-eye-slash fa-stack-2x"></i>
-							      	</button>
+							    	<% if post.active %>
+							    		<br>
+						        		<%= link_to fa_icon("eye 2x"), deactive_post_path(post), class: "active",:remote=>true %>
+							    	<% else %>
+							    		<br>
+						        		<%= link_to fa_icon("eye-slash 2x"), active_post_path(post), class: "deactive", :remote=>true %>
+						        	<% end %>
 							    <% end %>
 						    </div>
 						    <div class="col-1"></div>
@@ -92,5 +95,5 @@
 	</div>
 	<div class="col-12"><br></div>
 </div>
-
+<div id="modal" style="display: none"></div>
 

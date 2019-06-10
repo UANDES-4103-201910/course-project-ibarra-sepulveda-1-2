@@ -40,6 +40,14 @@ class ApplicationController < ActionController::Base
 
 	protected
 
+	def is_admin
+		if (Admin.where(user_id: current_user.id).first.nil? == false or SuperAdmin.where(user_id: current_user.id).first.nil? == false)
+			return true
+		else
+			return false
+		end
+	end
+
 	def configure_devise_params
 		add = [:first_name, :last_name, :picture,:country, :city, :biography, :email, :password, :password_confirmation]
 		devise_parameter_sanitizer.permit :sign_up, keys: add

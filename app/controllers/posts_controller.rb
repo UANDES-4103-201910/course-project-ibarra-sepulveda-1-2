@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :report, :deactive, :active]
   before_action :is_user_logged_in?
 
   # GET /posts
@@ -11,9 +11,9 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @comments = Comment.paginate(page: params[:page], per_page: 10).where(post_id: @post.id)
+    @comments = Comment.paginate(page: params[:page], per_page: 10).where(post_id: @post.id, comment_id: nil)
     @newcomment = true
-    @comment= Comment.new(user_id:current_user.id, post_id: @post.id)
+    @comment= Comment.new(user_id:current_user.id, post_id: @post.id, comment_id: nil)
   end
 
   # GET /posts/new
@@ -75,6 +75,26 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  def report
+    @comment= Comment.new(user_id:current_user.id, post_id: @post.id)
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def deactive
+    @is_admin = :is_admin
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def active
+    @is_admin = :is_admin
+    respond_to do |format|
+      format.js
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :thread]
   before_action :is_user_logged_in?
   # GET /comments
   # GET /comments.json
@@ -79,6 +79,13 @@ class CommentsController < ApplicationController
     redirect_to post_path(@comment.post_id)
   end
 
+  def thread
+    @comment = Comment.new(user_id:current_user.id, comment_id: @comment.id, post_id: @comment.post_id)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
@@ -87,6 +94,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:text, :post_id, :user_id)
+      params.require(:comment).permit(:text, :post_id, :user_id, :comment_id)
     end
 end

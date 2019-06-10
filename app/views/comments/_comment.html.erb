@@ -50,9 +50,8 @@
 								    </div>
 								    <div class="col-1"></div>
 								    <div class="col-1">
-								       	<button class="btn my-2 my-sm-0" type="submit">
-									      	<i class="fa fa-commenting fa-stack-2x"></i>
-									    </button>
+								    	<br>
+							    		<%= link_to fa_icon("commenting 2x"), thread_comment_path(comment), :remote=>true %>
 								    </div>
 								    <div class="col-1"></div>
 								    <div class="col-1">
@@ -76,5 +75,5 @@
 		</div>
 	</div>
 </div>
-
+<div id="modal" style="display: none"></div>
 

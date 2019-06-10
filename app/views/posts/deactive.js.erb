@@ -1,0 +1,5 @@
+if($('.active').length) {
+	$('.active').append('<% @post.update(active: false) %>');
+}
+
+location.reload();

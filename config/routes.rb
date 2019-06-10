@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     member do
       put "like" => "posts#upvote"
       put "unlike" => "posts#downvote"
+      get "report" => "posts#report"
+      get "deactive" => "posts#deactive"
+      get "active" => "posts#active"
     end
   end
 
@@ -21,6 +24,7 @@ Rails.application.routes.draw do
     member do
       put "like" => "comments#upvote"
       put "unlike" => "comments#downvote"
+      get "thread" => "comments#thread"
     end
   end
 
