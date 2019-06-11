@@ -19,7 +19,8 @@
 			      	</div>
 			      	<div class="col-2">
 			      		<% @dumpster =  Dumpster.where(post_id: post.id).first %>
-			      		<% if ((@dumpster.nil? == false) and @is_admin) %>
+			      		<%= @is_admin %>
+			      		<% if ((@dumpster.nil? == false) and (Admin.where(user_id: current_user.id).first.nil? == false  or SuperAdmin.where(user_id: current_user.id).first.nil? == false) ) %>
 			      			<%= link_to fa_icon("times 2x"), Dumpster.where(post_id: post.id).first, method: :delete, data: { confirm: 'Are you sure?'} %>
 			      		<% end %>
 			      		<% if (post.user_id == current_user.id) %>
@@ -72,7 +73,7 @@
 						    </div>
 						    <div class="col-1"></div>
 						    <div class="col-1">
-						        <% if (Dumpster.where(post_id: post.id).first.nil?) or (@is_admin==false) %>
+						        <% if (Dumpster.where(post_id: post.id).first.nil?) or ((Admin.where(user_id: current_user.id).first.nil? == false  or SuperAdmin.where(user_id: current_user.id).first.nil? == false)==false) %>
 						        	<br>
 						        	<%= link_to fa_icon("exclamation-triangle 2x"), report_post_path(post), :remote=>true %>
 							    <% else %>'
