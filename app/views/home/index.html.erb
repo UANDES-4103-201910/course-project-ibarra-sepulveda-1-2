@@ -17,8 +17,9 @@
 	  			<% end %>
 	  		<% end %>
 	  	</div>
-		<div class="row" id="answer"></div>
-	  	<div class="row" id="posts">
+		<div class="row answer">
+		</div>
+	  	<div class="row deleteSearh" id="posts">
 	    	<%= render @posts %>
 	    	<%= will_paginate @posts %>
 		</div>

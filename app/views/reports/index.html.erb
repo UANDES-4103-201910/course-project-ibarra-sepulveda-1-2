@@ -1,7 +1,14 @@
 <div class="col-12 text-center">
-  <h1>Reports</h1>
+  <h1>Reports</h1><br>
 </div>
-
+<div class="col-12 text-center">
+  <%= form_tag "/search/report", method: :get, remote: true, id:"search-form" do %>
+    <%= text_field_tag :keyword, nil, placeholder: "search"%>
+    <%= content_tag :button, type: :submit do %>
+      <i class="fa fa-search"></i>
+    <% end %>
+  <% end %><br>
+</div>
 <div class="col-2"></div>
 <div class="col-8">
   <table class="table table-bordered">
@@ -12,18 +19,16 @@
         <th>User Post</th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
 
-    <tbody>
+    <tbody id="answer">
       <% @reports.each do |report| %>
-        <tr>
+        <tr class="deleteSearh">
           <td><%= User.where(id: report.user_id )[0].email %></td>
           <td><%= Post.where(id: report.post )[0].title %></td>
           <td><%= User.where(id: Post.where(id: report.post )[0].user_id)[0].email %></td>
           <td><%= link_to 'Show', report, :class => 'btn btn-info' %></td>
-          <td><%= link_to 'Edit', edit_report_path(report), :class => 'btn btn-info' %></td>
           <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-info' %></td>
         </tr>
       <% end %>
@@ -32,11 +37,6 @@
 </div>
 
 <div class="col-2"></div>
-<br>
-
-<div class="col-12 text-center">
-  <%= link_to 'New Report', new_report_path, :class => 'btn btn-info' %>
-</div>
 <div class="col-12">
   <br>
 </div>

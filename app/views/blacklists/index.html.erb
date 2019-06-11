@@ -1,18 +1,24 @@
 <div class="col-12 text-center">
-  <h1>Blacklist</h1>
+  	<h1>Blacklist</h1><br>
 </div>
 
 <div class="container">
-  <div class="col-12">
-    <div class="row">  
-      <%= render @blacklists %>
-    </div>
-  </div>
+	<div class="col-12 text-center">
+	  	<%= form_tag "/search/blacklist", method: :get, remote: true, id:"search-form" do %>
+	  		<%= text_field_tag :keyword, nil, placeholder: "search"%>
+	  		<%= content_tag :button, type: :submit do %>
+	  			<i class="fa fa-search"></i>
+	  		<% end %>
+	  	<% end %>
+	</div>
+  	<div class="col-12">
+    	<div class="row" id="answer">  
+      		<%= render @blacklists %>
+      		<%= will_paginate @blacklists %>
+    	</div>
+  	</div>
 </div>
 
-<div class="col-12 text-center">
-  <%= link_to 'Add new user', new_blacklist_path , :class => 'btn btn-info'%>
-</div>
 <div class="col-12">
-  <br>
+  	<br>
 </div>

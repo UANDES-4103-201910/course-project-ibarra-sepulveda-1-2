@@ -1,10 +1,8 @@
-<% @admins.each do |admin| %>
-    <tr class="deleteSearh">
-    	<td class="deleteSearh"><%= User.where(id: admin.user_id )[0].email %></td>
-    	<td class="deleteSearh"><%= User.where(id: admin.user_id )[0].country %> / <%= User.where(id: admin.user_id )[0].city %></td>
-    	<td class="deleteSearh"><%= admin.updated_at %></td>
-    	<td class="deleteSearh"><%= link_to 'Show', admin, :class => 'btn btn-info' %></td>
-    	<td class="deleteSearh"><%= link_to 'Edit', edit_admin_path(admin), :class => 'btn btn-info' %></td>
-    	<td class="deleteSearh"><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-info' %></td>
-    </tr class="deleteSearh">
-<% end %>
+<tr class="deleteSearh">
+	<td class="deleteSearh"><%= User.where(id: admin.user_id )[0].email %></td>
+	<td class="deleteSearh"><%= User.where(id: admin.user_id )[0].country %> / <%= User.where(id: admin.user_id )[0].city %></td>
+	<td class="deleteSearh"><%= admin.updated_at %></td>
+	<td class="deleteSearh"><%= link_to 'Show', admin, :class => 'btn btn-info' %></td>
+	<td class="deleteSearh"><%= link_to 'Edit', edit_admin_path(admin), :class => 'btn btn-info' %></td>
+	<td class="deleteSearh"><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-info' %></td>
+</tr class="deleteSearh">

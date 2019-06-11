@@ -4,7 +4,7 @@ class BlacklistsController < ApplicationController
   # GET /blacklists
   # GET /blacklists.json
   def index
-    @blacklists = Blacklist.all
+    @blacklists = Blacklist.paginate(page: params[:page], per_page: 8).order(created_at: :desc).all
   end
 
   # GET /blacklists/1

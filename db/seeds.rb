@@ -37,6 +37,10 @@ Comment.create(post_id: 4, user_id:4, text: "Lorem ipsum dolor sit amet consecte
 Comment.create(post_id: 5, user_id:1, text: "elit curae urna nisi lobortis potenti, tincidunt molestie sem commodo gravida")
 Comment.create(post_id: 1, user_id:2, text: "Lorem ipsum dolor sit amet consectetur adipiscing")
 
+Report.create(user_id: 1, post_id: 3, short_comment: "fusce tortor quis suspendisse at eu porttitor")
+Report.create(user_id: 5, post_id: 3, short_comment: "fusce tortor quis suspendisse at eu porttitor")
+Report.create(user_id: 2, post_id: 4, short_comment: "fusce tortor quis suspendisse at eu porttitor")
+
 Blacklist.create(user_id: 3)
 Blacklist.create(user_id: 4)
 

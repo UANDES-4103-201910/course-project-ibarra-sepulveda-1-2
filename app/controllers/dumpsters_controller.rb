@@ -6,7 +6,7 @@ class DumpstersController < ApplicationController
   # GET /dumpsters.json
   def index
     @dumpsters = Dumpster.all
-    @posts = Post.where(id:Dumpster.select(:post_id))
+    @posts = Post.paginate(page: params[:page], per_page: 4).order(created_at: :desc).where(id:Dumpster.select(:post_id))
     @col6 = true
 
   end

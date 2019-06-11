@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy, :report]
-
+  before_action :is_user_logged_in?
   # GET /reports
   # GET /reports.json
   def index

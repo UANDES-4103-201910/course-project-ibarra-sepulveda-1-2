@@ -1,0 +1,10 @@
+<% @reports.each do |report| %>
+	<tr class="deleteSearh">
+		<td class="deleteSearh"><%= User.where(id: report.user_id )[0].email %></td>
+		<td class="deleteSearh"><%= Post.where(id: report.post )[0].title %></td>
+		<td class="deleteSearh"><%= User.where(id: Post.where(id: report.post )[0].user_id)[0].email %></td>
+		<td class="deleteSearh"><%= link_to 'Show', report, :class => 'btn btn-info' %></td>
+		<td class="deleteSearh"><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-info' %></td>
+	</tr class="deleteSearh">
+<% end %>
+
