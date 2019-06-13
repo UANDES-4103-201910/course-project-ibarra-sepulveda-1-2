@@ -27,7 +27,7 @@
       <% @admins.each do |admin| %>
         <tr class="deleteSearh">
           <td><%= User.where(id: admin.user_id )[0].email %></td>
-          <td><%= User.where(id: admin.user_id )[0].country %> / <%= User.where(id: admin.user_id )[0].city %></td>
+          <td><%= User.where(id: admin.user_id )[0].address %></td>
           <td><%= admin.updated_at %></td>
           <td><%= link_to 'Show', admin, :class => 'btn btn-info' %></td>
           <td><%= link_to 'Edit', edit_admin_path(admin), :class => 'btn btn-info' %></td>

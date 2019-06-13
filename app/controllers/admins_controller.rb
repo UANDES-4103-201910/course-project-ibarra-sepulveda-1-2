@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-  before_action :set_admin, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin, only: [:show, :edit, :update, :destroy, :location]
   before_action :is_super_admin_logged_in?
 
   # GET /admins
@@ -62,6 +62,14 @@ class AdminsController < ApplicationController
     end
   end
 
+  def location
+    @user = User.where(id: @admin.user_id).first
+    respond_to do |format|
+      format.json { render json: @user }
+      format.js
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin

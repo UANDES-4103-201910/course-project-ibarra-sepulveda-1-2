@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'geocoder'
+
 gem 'acts_as_votable', '~> 0.12.0'
 
 gem 'will_paginate', '~> 3.1.0'

@@ -33,7 +33,7 @@
 		      		<%= link_to user.email, user %>
 		      	</div>
 		      	<div class="col-12">
-			        <i class="fa fa-map-marker"></i> <%= User.where(id: post.user_id )[0].city %>, <%= User.where(id: post.user_id )[0].country %> 
+			        <i class="fa fa-map-marker"></i> <%= User.where(id: post.user_id )[0].address %> 
 			    </div>
 		      	<div class="col-12">
 		      		<% if  post.file.thumb.url %>

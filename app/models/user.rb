@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 	acts_as_voter
+	geocoded_by :address
+	after_validation :geocode, if: ->(obj){obj.address.present? and obj.address_changed?}
 	mount_uploader :picture, PictureUploader
   	# Include default devise modules. Others available are:
   	# :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

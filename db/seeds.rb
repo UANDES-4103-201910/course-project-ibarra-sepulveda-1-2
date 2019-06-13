@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # User
-User.create(first_name: "Javier", last_name: "Ibarra", email: "jaibarra1@miuandes.cl", city: "Santiago", country: "Chile", password: "0987654321", biography: "Cum congue convallis curabitur viverra posuere conubia odio praesent quisque montes natoque platea venenatis scelerisque dictumst, cubilia felis fermentum per duis sapien porttitor senectus velit sem nunc tellus ac." )
-User.create(first_name: "Josefina", last_name: "Ibarra", email: "jibarra@miuandes.cl", city: "Santiago", country: "Chile", password: "jose123", biography: "Convallis fusce tortor quis suspendisse at eu porttitor, non aliquam venenatis elementum dapibus iaculis, eros id vivamus purus feugiat tempus." )
-User.create(first_name: "Maria Jesus", last_name: "Ibarra", email: "mjibarra@miuandes.cl", city: "Santiago", country: "Chile", password: "jesu123", biography: "Lorem ipsum dolor sit amet consectetur adipiscing, elit curae urna nisi lobortis potenti, tincidunt molestie sem commodo gravida." )
-User.create(first_name: "Javier", last_name: "Ibarra", email: "jibarra@gmail.com", city: "Santiago", country: "Chile", password: "0987654321", biography: "Lorem ipsum dolor sit amet consectetur adipiscing, elit curae urna nisi lobortis potenti, tincidunt molestie sem commodo gravida." )
-User.create(first_name: "Camila",last_name: "Sepulveda", email: "csepulveda@miuandes.cl", city: "Santiago", country: "Chile", password: "0987654321", biography: "Lorem ipsum dolor sit amet consectetur adipiscing, elit curae urna nisi lobortis potenti, tincidunt molestie sem commodo gravida.")
-User.create(first_name: "Gonzalo", last_name: "Caballero", email: "gcaballero@gmail.com", city: "Santiago", country: "Chile", password: "gonzalo123", biography: "Convallis fusce tortor quis suspendisse at eu porttitor, non aliquam venenatis elementum dapibus iaculis, eros id vivamus purus feugiat tempus.")
+User.create(first_name: "Javier", last_name: "Ibarra", email: "jaibarra1@miuandes.cl", address: "Santiago, Chile", password: "0987654321", biography: "Cum congue convallis curabitur viverra posuere conubia odio praesent quisque montes natoque platea venenatis scelerisque dictumst, cubilia felis fermentum per duis sapien porttitor senectus velit sem nunc tellus ac." )
+User.create(first_name: "Josefina", last_name: "Ibarra", email: "jibarra@miuandes.cl", address: "Santiago, Chile", password: "jose123", biography: "Convallis fusce tortor quis suspendisse at eu porttitor, non aliquam venenatis elementum dapibus iaculis, eros id vivamus purus feugiat tempus." )
+User.create(first_name: "Maria Jesus", last_name: "Ibarra", email: "mjibarra@miuandes.cl", address: "Santiago, Chile", password: "jesu123", biography: "Lorem ipsum dolor sit amet consectetur adipiscing, elit curae urna nisi lobortis potenti, tincidunt molestie sem commodo gravida." )
+User.create(first_name: "Juan", last_name: "Ibarra", email: "jibarra@gmail.com", address: "Talca, Chile", password: "0987654321", biography: "Lorem ipsum dolor sit amet consectetur adipiscing, elit curae urna nisi lobortis potenti, tincidunt molestie sem commodo gravida." )
+User.create(first_name: "Camila",last_name: "Sepulveda", email: "csepulveda@miuandes.cl", address: "Santiago, Chile", password: "0987654321", biography: "Lorem ipsum dolor sit amet consectetur adipiscing, elit curae urna nisi lobortis potenti, tincidunt molestie sem commodo gravida.")
+User.create(first_name: "Gonzalo", last_name: "Caballero", email: "gcaballero@gmail.com", address: "Linares, Chile", password: "gonzalo123", biography: "Convallis fusce tortor quis suspendisse at eu porttitor, non aliquam venenatis elementum dapibus iaculis, eros id vivamus purus feugiat tempus.")
 
 Admin.create(user_id: 1)
 
@@ -40,6 +40,12 @@ Comment.create(post_id: 1, user_id:2, text: "Lorem ipsum dolor sit amet consecte
 Report.create(user_id: 1, post_id: 3, short_comment: "fusce tortor quis suspendisse at eu porttitor")
 Report.create(user_id: 5, post_id: 3, short_comment: "fusce tortor quis suspendisse at eu porttitor")
 Report.create(user_id: 2, post_id: 4, short_comment: "fusce tortor quis suspendisse at eu porttitor")
+Report.create(user_id: 1, post_id: 6, short_comment: "fusce tortor quis suspendisse at eu porttitor")
+Report.create(user_id: 5, post_id: 6, short_comment: "fusce tortor quis suspendisse at eu porttitor")
+Report.create(user_id: 2, post_id: 6, short_comment: "fusce tortor quis suspendisse at eu porttitor")
+Report.create(user_id: 1, post_id: 7, short_comment: "fusce tortor quis suspendisse at eu porttitor")
+Report.create(user_id: 5, post_id: 7, short_comment: "fusce tortor quis suspendisse at eu porttitor")
+Report.create(user_id: 6, post_id: 7, short_comment: "fusce tortor quis suspendisse at eu porttitor")
 
 Blacklist.create(user_id: 3)
 Blacklist.create(user_id: 4)

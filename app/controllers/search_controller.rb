@@ -33,8 +33,9 @@ class SearchController < ApplicationController
 
     def blacklist
       word = "%#{params[:keyword]}%"
-      @user = User.where("email LIKE ?", word)
-      @blacklists = Blacklist.where(user_id: @user)
+      @admin_adrress = User.where(address: User.where(id: current_user.id).first.address).first.address
+      @user = User.where("email LIKE ? AND address = ? ", word, @admin_adrress)
+      @blacklists = Blacklist.order(created_at: :desc).where(user_id: @user)
 
       respond_to do |format|
         format.html { redirect_to blacklists_path }
@@ -45,24 +46,41 @@ class SearchController < ApplicationController
 
     def dumpster
       word = "%#{params[:keyword]}%"
-      @user = User.where("email LIKE ?", word)
-      @post = Post.where("title LIKE ?", word)
-      @dumpsters = Dumpster.where(user_id: @user)
+      @admin_adrress = User.where(address: User.where(id: current_user.id).first.address).first.address
+      @user = User.where("email LIKE ? AND address = ?", word, @admin_adrress)
+      @dumpsters = Dumpster.where(post_id: Post.where(user_id: @user)).select(:post_id)
+      @col6 = true
+      @posts = Post.order(created_at: :desc).where(id: @dumpsters)
       
       respond_to do |format|
         format.html { redirect_to dumpsters_path }
-        format.json { render json: @dumpsters }
+        format.json { render json: @posts }
         format.js
       end
     end
 
     def report
       word = "%#{params[:keyword]}%"
-      @user = User.where("email LIKE ?", word)
-      @reports = Report.where(user_id: @user)
-      if @report.nil?
+      if (SuperAdmin.where(user_id: current_user.id).first.nil? == false)
+        @user = User.where("email LIKE ?", word)
         @post = Post.where(user_id: @user)
-        @reports = Report.where(post_id: @post)
+        if @post.first.nil?
+          @reports = Report.where(post_id: Post.where("title LIKE ?", word))
+        else
+          @reports = Report.where(post_id: @post)
+        end
+      else
+        @admin_adrress = User.where(address: User.where(id: current_user.id).first.address).first.address
+        @user = User.where("email LIKE ? AND address = ?", word, @admin_adrress)
+
+        if @user.nil? == false
+          @post = Post.where(user_id: @user)
+          @reports = Report.where(post_id: @post)
+
+        else
+          @reports = Report.where(post_id: Post.where("title LIKE ?", word))
+
+        end
       end
       
       respond_to do |format|
