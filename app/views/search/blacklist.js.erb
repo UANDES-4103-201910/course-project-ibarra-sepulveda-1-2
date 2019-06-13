@@ -1,2 +1,5 @@
 $( ".deleteSearh" ).remove();
-$("#answer").append('<%= j render @blacklists %>');
+$(".answer").append('<%= j render @blacklists %>');
+$(".answer").append("<%= will_paginate @blacklists %>")
+$(".answer").append("<%= will_paginate @blacklists %>");
+

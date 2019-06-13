@@ -4,7 +4,11 @@ class BlacklistsController < ApplicationController
   # GET /blacklists
   # GET /blacklists.json
   def index
-    @blacklists = Blacklist.paginate(page: params[:page], per_page: 8).order(created_at: :desc).where(user_id: User.where(address: User.where(id: current_user.id).first.address))
+    if (SuperAdmin.where(user_id: current_user.id).first.nil? == false)
+      @blacklists = Blacklist.paginate(page: params[:page], per_page: 6).order(created_at: :desc).all
+    else
+      @blacklists = Blacklist.paginate(page: params[:page], per_page: 6).order(created_at: :desc).where(user_id: User.where(address: User.where(id: current_user.id).first.address))
+    end
   end
 
   # GET /blacklists/1
