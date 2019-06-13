@@ -16,9 +16,11 @@
       <%= form.label :user_id, "User" %><br>
       <%= form.collection_select :user_id,  User.order(:email).where.not(id: Admin.select('user_id')).where.not(id: SuperAdmin.select('user_id')), :id, :email, include_blank: true , class: 'form-control'%>
     </div>
-    <div>
-      <%= link_to "Location", location_admin_path(@admin), :remote=>true , :class => 'btn btn-dark' %><br>
-    </div>
+    <% if @new == false %>
+      <div>
+        <%= link_to "Location", location_admin_path(@admin), :remote=>true , :class => 'btn btn-dark' %><br>
+      </div>
+    <% end %>
     <div>
       <br><br>
     </div>

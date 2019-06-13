@@ -15,11 +15,13 @@ class AdminsController < ApplicationController
 
   # GET /admins/new
   def new
+    @new = true
     @admin = Admin.new
   end
 
   # GET /admins/1/edit
   def edit
+    @new = false
   end
 
   # POST /admins

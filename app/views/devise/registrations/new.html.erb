@@ -20,21 +20,24 @@
           </div>
 
           <div class="form-group">
-            <%= f.label :picture, "Profile Picture" %>
-            <%= f.file_field :picture %>
-          </div>
-
-          <div class="form-group">
             <%= f.label :address, "Address" %>
             <%= f.text_field :address , :class => 'form-control'%>
           </div>
-  
+          
+          <div class="form-group">
+            <%= f.label :picture, "Profile Picture" %><br>
+            <%= f.file_field :picture %>
+          </div>
+                 
         </div>
+
         <div class="col-sm-6">
+          
           <div class="form-group">
              <%= f.label :biography %>
              <%= f.text_field :biography , :class => 'form-control' %>
           </div>
+
           
           <div class="form-group">
             <%= f.label :email %><br />
