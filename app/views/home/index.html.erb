@@ -26,4 +26,15 @@
 	  </div>
 	</div>
 	<div class="col-12"><br></div>
+<% else %>
+	<div class="container d-xl-flex justify-content-md-center">
+		<div class="jumbotron justify-content-md-center">
+	    	<div class="text-center">
+	    		<H1>Welcome</H1>
+	    		<P>Lorem ipsum dolor sit amet consectetur adipiscing, elit curae urna nisi lobortis potenti, tincidunt molestie sem commodo gravida. Cum congue convallis curabitur viverra posuere conubia odio praesent quisque montes natoque platea venenatis scelerisque dictumst, cubilia felis fermentum per duis sapien porttitor senectus velit sem nunc tellus ac.</P>
+	    		<%= link_to "Log in" , new_user_session_path, :class => "btn btn-outline-dark"%>
+	    		<%= link_to "Sing up" , new_user_registration_path , :class => "btn btn-outline-dark"%>
+	    	</div>
+		</div>
+	</div>
 <% end %>

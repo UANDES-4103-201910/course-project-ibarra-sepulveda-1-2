@@ -32,7 +32,7 @@ class DumpstersController < ApplicationController
 
     respond_to do |format|
       if @dumpster.save
-        format.html { redirect_to @dumpster, success: 'Dumpster was successfully created.' }
+        format.html { redirect_to @dumpster, notice: 'Dumpster was successfully created.' }
         format.json { render :show, status: :created, location: @dumpster }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class DumpstersController < ApplicationController
   def update
     respond_to do |format|
       if @dumpster.update(dumpster_params)
-        format.html { redirect_to @dumpster, success: 'Dumpster was successfully updated.' }
+        format.html { redirect_to @dumpster, notice: 'Dumpster was successfully updated.' }
         format.json { render :show, status: :ok, location: @dumpster }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class DumpstersController < ApplicationController
   def destroy
     @dumpster.destroy
     respond_to do |format|
-      format.html { redirect_to dumpsters_url, success: 'Dumpster was successfully destroyed.' }
+      format.html { redirect_to dumpsters_url, notice: 'Dumpster was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

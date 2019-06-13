@@ -71,7 +71,15 @@
       <li class="nav-item">
         <%= link_to "Log in" , new_user_session_path ,:class => 'nav-link' %>
       </li>
+      <li class="nav-item"> 
+          <%= link_to "Sing up" , new_user_registration_path , :class => 'nav-link'%>
+        </li> 
     </ul>
+    <ul class="nav navbar-nav navbar-righ">
+        <li class="nav-item"> 
+          <%= link_to "Home" , root_path ,:class => 'nav-link'%>
+        </li>  
+      </ul>
 
   <% end %>
   

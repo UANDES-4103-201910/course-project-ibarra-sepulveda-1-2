@@ -1,5 +1,18 @@
 <% flash.each do |name ,msg| %>
-	<div class="alert alert-<%= name %>">
+	<% if name == "notice"%>
+		<% name = "success" %>
+	<% elsif name == "alert" %>
+		<% name = "warning" %>
+	<% end %>
+		
+	<div id="hide" class="alert alert-<%= name %>">
 		<%= msg %>
 	</div>
+	<script>
+		$(document).ready(function(){
+			setTimeout(function(){
+				$("#hide").fadeOut(1000);
+			},1500);
+		});
+	</script>
 <% end %>

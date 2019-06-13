@@ -28,7 +28,7 @@ class BlacklistsController < ApplicationController
 
     respond_to do |format|
       if @blacklist.save
-        format.html { redirect_to @blacklist, success: 'Blacklist was successfully created.' }
+        format.html { redirect_to @blacklist, notice: 'Blacklist was successfully created.' }
         format.json { render :show, status: :created, location: @blacklist }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class BlacklistsController < ApplicationController
   def update
     respond_to do |format|
       if @blacklist.update(blacklist_params)
-        format.html { redirect_to @blacklist, success: 'Blacklist was successfully updated.' }
+        format.html { redirect_to @blacklist, notice: 'Blacklist was successfully updated.' }
         format.json { render :show, status: :ok, location: @blacklist }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class BlacklistsController < ApplicationController
   def destroy
     @blacklist.destroy
     respond_to do |format|
-      format.html { redirect_to blacklists_url, success: 'Blacklist was successfully destroyed.' }
+      format.html { redirect_to blacklists_url, notice: 'Blacklist was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
