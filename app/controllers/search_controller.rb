@@ -4,7 +4,7 @@ class SearchController < ApplicationController
   	def post
   		word = "%#{params[:keyword]}%"
       @col6 = true
-      if (SuperAdmin.where(user_id: current_user.id).first.nil? == false)
+      if (Admin.where(user_id: current_user.id).first.nil?)
         @user = User.where("first_name LIKE ? OR last_name LIKE ? OR email LIKE ?", word, word, word)
       else
   		  @user = User.where("(first_name LIKE ? OR last_name LIKE ? OR email LIKE ?) AND address = ?", word, word, word, current_user.address)

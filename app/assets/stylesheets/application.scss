@@ -19,11 +19,22 @@ body{
 }
 
 footer {
-	background: #000000;
+	background: #2E2E2E;
 	color: #FFFFFF;
 	width: 100vw;
-	height: 100px;
+	height: 200px;
 	bottom: 0;
+}
+
+footer a {
+	color: #FFFFFF;
+}
+
+.footer-copyright {
+	background: #212121;
+	color: #FFFFFF;
+	width: 100vw;
+	height: 50px;
 }
 
 a {

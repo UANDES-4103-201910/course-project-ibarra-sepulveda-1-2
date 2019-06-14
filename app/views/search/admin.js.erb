@@ -1,2 +1,2 @@
 $( ".deleteSearh" ).remove();
-$("#answer").append('<%= j render @admins %>');
+$("#answer").append('<%= j render @admins %><%= will_paginate @admins %>');
