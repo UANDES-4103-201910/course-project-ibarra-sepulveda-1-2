@@ -43,6 +43,7 @@ Rails.application.routes.draw do
       put "like" => "comments#upvote"
       put "unlike" => "comments#downvote"
       get "thread" => "comments#thread"
+      get "replies" => "comments#replies"
     end
   end
 

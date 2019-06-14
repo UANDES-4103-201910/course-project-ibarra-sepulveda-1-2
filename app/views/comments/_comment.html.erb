@@ -76,4 +76,11 @@
 	</div>
 </div>
 <div id="modal" style="display: none"></div>
-
+<% @morecomment = Comment.where(post_id: comment.post_id, comment_id: comment.id) %>
+<% if @morecomment.first.nil? == false%>
+	<div class="col-12 text-center">
+		<%= link_to "view replies" , replies_comment_path(comment), :remote=>true %>
+		(<%= @morecomment.count %>)
+	</div>
+<% end %>
+<div class="replies"></div>

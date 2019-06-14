@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :thread]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :thread, :replies]
   before_action :is_user_logged_in?
   # GET /comments
   # GET /comments.json
@@ -82,6 +82,14 @@ class CommentsController < ApplicationController
   def thread
     @comment = Comment.new(user_id:current_user.id, comment_id: @comment.id, post_id: @comment.post_id)
     respond_to do |format|
+      format.js
+    end
+  end
+
+  def replies
+    @comments = Comment.where(post_id: @comment.post_id, comment_id: @comment.id)
+    respond_to do |format|
+      format.json { render json: @comments }
       format.js
     end
   end

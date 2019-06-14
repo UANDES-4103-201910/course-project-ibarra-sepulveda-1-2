@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @posts = Post.paginate(page: params[:page], per_page: 3).order(id: :desc).where(user_id: @user.id) 
+    @posts = Post.paginate(page: params[:page], per_page: 3).order(id: :desc).where("user_id = ? OR text LIKE ? ", @user.id, "%#"+@user.email+'%') 
   end
 
   private
