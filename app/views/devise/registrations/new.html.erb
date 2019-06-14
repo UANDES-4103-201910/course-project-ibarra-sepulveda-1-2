@@ -20,25 +20,24 @@
           </div>
 
           <div class="form-group">
-            <%= f.label :address, "Address" %>
-            <%= f.text_field :address , :class => 'form-control'%>
+            <%= f.label :picture, "Profile Picture" %><br>
+            <%= f.file_field :picture %>
           </div>
           
           <div class="form-group">
-            <%= f.label :picture, "Profile Picture" %><br>
-            <%= f.file_field :picture %>
+             <%= f.label :biography %>
+             <%= f.text_area(:biography, size: '35x5', class: 'form-control') %>
           </div>
                  
         </div>
 
         <div class="col-sm-6">
-          
+
           <div class="form-group">
-             <%= f.label :biography %>
-             <%= f.text_field :biography , :class => 'form-control' %>
+            <%= f.label :address, "Address" %>
+            <%= f.text_field :address , :class => 'form-control'%>
           </div>
 
-          
           <div class="form-group">
             <%= f.label :email %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email" , :class => 'form-control'%>
@@ -60,8 +59,8 @@
 
         <div class="col-12 align-self-center">
           <br>
-          <%= f.check_box :terms_of_service %> I have not read them, but I accept the <a href="https://www.termsofservicegenerator.net/live.php?token=smSPe3swA0Nkq7fZtGTRqkLXFQTj0REF">( Terms and Conditions of Use</a> | <a href="https://www.termsofusegenerator.net/live.php?token=mic8onK4HHwutvPTBVkyklOIxjDj7ADd">Terms of Use</a> | 
-          <a href="https://www.privacypolicygenerator.info/live.php?token=ugitFrrTi99CC5vkhwH7WRzmw4QpwgJv">Privacy Policy )</a><br><br>
+          <%= f.check_box :terms_of_service %> I have not read them, but I accept the <a href="https://www.termsofservicegenerator.net/live.php?token=smSPe3swA0Nkq7fZtGTRqkLXFQTj0REF" target="_blank">( Terms and Conditions of Use</a> | <a href="https://www.termsofusegenerator.net/live.php?token=mic8onK4HHwutvPTBVkyklOIxjDj7ADd"target="_blank">Terms of Use</a> | 
+          <a href="https://www.privacypolicygenerator.info/live.php?token=ugitFrrTi99CC5vkhwH7WRzmw4QpwgJv" target="_blank">Privacy Policy )</a><br><br>
         </div>
 
 
