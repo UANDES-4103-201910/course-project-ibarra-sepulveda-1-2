@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
 	protected
 
 	def configure_devise_params
-		add = [:first_name, :last_name, :picture,:country, :city, :biography, :email, :password, :password_confirmation]
+		add = [:first_name, :last_name, :picture,:country, :city, :biography, :email, :password, :password_confirmation, :terms_of_service]
 		devise_parameter_sanitizer.permit :sign_up, keys: add
     	devise_parameter_sanitizer.permit :account_update, keys: add
 	end

@@ -23,12 +23,6 @@
       <div class="col-12">
         Address: <%= @user.address %><br><br>
       </div> 
-
-      <div>
-        <p>
-          <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@user.latitude},#{@user.longitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" %>
-        </p>
-      </div>
       
       <% if (current_user.id == @user.id) %>
         <div class="col-12">
